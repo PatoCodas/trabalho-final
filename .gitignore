@@ -1,0 +1,82 @@
+
+CopyInsert
+# Arquivos e diretórios do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos e diretórios do IDE
+.vscode/
+.idea/
+*.iml
+
+# Arquivos e diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos de teste
+*.test
+
+# Arquivos de build
+build/
+dist/
+
+# Arquivos de dependências
+env/
+venv/
+requirements.txt
+
+# Outros arquivos e diretórios
+*.tmp
+*.bak
+*.swp
+*.swo
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
+*.lzma
+*.rar
+*.7z
+*.exe
+*.dll
+*.so
+*.o
+*.obj
+*.lib
+*.a
+*.la
+*.lo
+*.toc
+*.TOC
+*.manifest
+*.msi
+*.msp
+*.cab
+*.jar
+*.war
+*.ear
+*.sar
+*.rar
+*.zip
+*.gz
+*.bz2
+*.xz
+*.lzma
+*.tar
+*.tgz
+*.tbz2
+*.txz
+*.tlz
+*.lz
+*.lzo
+*.lz4
+*.lzma
+*.xz
+*.zst
+*.zstd

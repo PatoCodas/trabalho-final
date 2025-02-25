@@ -1,6 +1,6 @@
 from flask import Flask
-from models import db
-from routes import bp
+from models.models import db
+from routes.routes import bp
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registros.db'
