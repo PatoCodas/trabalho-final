@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Registro de Melhor Tempo{% endblock title%}
+{% block titulo %}Registre seu tempo de volta!{% endblock titulo%}
+{% block conteudo %}
+<h2 class="tituloLista">Lista de Tempo de Volta</h2>
+
+<div class="container form-principal">
+    <form action="{{ url_for('routes.principal') }}" method="POST" class="formulario">
+
+        <input type="text" name="nomePiloto" placeholder="Nome do Corredor" focus required>
+        
+        <!--Add mascára de input-->
+        <input type="text" name="tempo" placeholder="MM:SS:MM" pattern="\d{2}:\d{2}:\d{2}" required>
+
+
+<!-- Implementar segurança CSRF -->
+
+        <!--Add tabela nova sobre as pistas para buscar posteriormente-->        
+        <p><label for="pista">Escolha uma pista de F1:</label></p>
+        <select id="pista" name="pista" required>
+            <option value="" disabled selected>Selecione uma pista...</option>
+            <option value="bahrain">Bahrain International Circuit (Bahrein)</option>
+            <option value="jeddah">Jeddah Street Circuit (Arábia Saudita)</option>
+            <option value="melbourne">Melbourne Grand Prix Circuit (Austrália)</option>
+            <option value="imola">Autodromo Enzo e Dino Ferrari (Itália)</option>
+            <option value="miami">Miami International Autodrome (Estados Unidos)</option>
+            <option value="monaco">Circuit de Monaco (Mônaco)</option>
+            <option value="baku">Baku City Circuit (Azerbaijão)</option>
+            <option value="barcelona">Circuit de Barcelona-Catalunya (Espanha)</option>
+            <option value="zandvoort">Circuit Zandvoort (Países Baixos)</option>
+            <option value="montreal">Circuit Gilles Villeneuve (Canadá)</option>
+            <option value="silverstone">Silverstone Circuit (Reino Unido)</option>
+            <option value="redbullring">Red Bull Ring (Áustria)</option>
+            <option value="spa">Circuit de Spa-Francorchamps (Bélgica)</option>
+            <option value="hungaroring">Hungaroring (Hungria)</option>
+            <option value="suzuka">Suzuka Circuit (Japão)</option>
+            <option value="cota">Circuit of the Americas (Estados Unidos)</option>
+            <option value="mexico">Autódromo Hermanos Rodríguez (México)</option>
+            <option value="interlagos">Autódromo José Carlos Pace (Brasil)</option>
+            <option value="lasvegas">Las Vegas Grand Prix (Estados Unidos)</option>
+            <option value="yasmarina">Yas Marina Circuit (Emirados Árabes Unidos)</option>
+        </select>
+        <button type="submit">Adicionar</button>
+    </form>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Piloto</th>
+                    <th>Tempo</th>
+                    <th>Pista</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                <tr>
+                    <td>{{ registro.nomePiloto }}</td>
+                    <td>{{ registro.tempo }}</td>
+                    <td class="pista">{{ registro.pista }}</td>
+                    <td>
+                        <form action="{{ url_for('routes.principal') }}" method="POST">
+                            <button type="submit" name="deletar" value="{{ registro.id }}">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ url_for('routes.limpar_banco') }}" class="botao-reset">
+        <button class="limpaRegistros">Limpar registros</button>
+    </a>
+    
+</div>
+{% endblock conteudo %}

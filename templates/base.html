@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Parte fixa: Imagem Texto Imagem -->
+    <header class="image-container">
+        <img src="{{ url_for('static', filename='images/CarroF1End.png') }}" alt="Imagem 1">
+        <h1 class="título">{% block titulo %}{% endblock titulo%}</h1>
+        <img src="{{ url_for('static', filename='images/CarroF1.png') }}" alt="Imagem 2">
+    </header>
+
+    <!-- Parte dinâmica que muda conforme a página -->
+    <main>
+        {% block conteudo %}
+        {% endblock conteudo%}
+    </main>
+</body>
+</html>

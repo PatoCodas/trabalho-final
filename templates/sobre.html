@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{% for registro in registros %}
+<details>
+    <summary>{{registro.aluno}}</summary>
+    <p>{{registro.nota}}</p>
+</details>
+
+{% endfor %}
+<form action="{{url_for('sobre')}}" method="POST">
+    <label>Aluno:</label>
+    <input type="text" name="aluno" id="nome" required>
+    <label>Nota:</label>
+    <input type="number" name="nota" id="nota" required>
+    <button>Adicionar</button>
+    <img src="../images/CarroF1.png" alt="img2">
+    <h1>Seu tempo de volta nas corridas!</h1>
+    
+</form>
+{% endblock conteudo%}
